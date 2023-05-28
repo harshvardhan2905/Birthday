@@ -4,8 +4,8 @@ var rotateSpeed = -60; // unit: seconds/360 degrees
 var imgWidth = 120; // width of images (unit: px)
 var imgHeight = 170; // height of images (unit: px)
 // Link of background music - set 'null' if you dont want to play background music
-// var bgMusicURL = 'music.mp3';
-var bgMusicControls = true; // Show UI music control
+var bgMusicURL = 'music.mp3';
+// var bgMusicControls = true; // Show UI music control
 // ===================== start =======================
 // animation start after 1000 miliseconds
 setTimeout(init, 1000);
@@ -48,13 +48,13 @@ if (autoRotate) {
   ospin.style.animation = `${animationName} ${Math.abs(rotateSpeed)}s infinite linear`;
 }
 // add background music
-// if (bgMusicURL) {
-//   document.getElementById('music-container').innerHTML += `
-// <audio src="${bgMusicURL}" ${bgMusicControls? 'controls': ''} autoplay loop>
-// <p>If you are reading this, it is because your browser does not support the audio element.</p>
-// </audio>
-// `;
-// }
+if (bgMusicURL) {
+  document.getElementById('music-container').innerHTML += `
+<audio src="${bgMusicURL}" ${bgMusicControls? 'controls': ''} autoplay loop>
+<p>If you are reading this, it is because your browser does not support the audio element.</p>
+</audio>
+`;
+}
 // setup events
 document.onpointerdown = function (e) {
   clearInterval(odrag.timer);
